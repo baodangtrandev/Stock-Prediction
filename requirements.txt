@@ -1,0 +1,9 @@
+pandas
+numpy
+yfinance
+streamlit
+plotly
+sklearn.preprocessing
+tensorflow
+keras.models
+keras.layers
