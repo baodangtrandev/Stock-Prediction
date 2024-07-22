@@ -4,8 +4,12 @@ import yfinance as yf
 from datetime import date
 import streamlit as st
 from plotly import graph_objs as go
+from sklearn.preprocessing import MinMaxScaler
+import tensorflow as tf
+from keras.models import Sequential
+from keras.layers import Dense, LSTM
 
-# get data frame
+# Get data frame
 start = '2014-01-01'
 today = date.today().strftime("%Y-%m-%d")
 
@@ -127,22 +131,14 @@ def plot_chart_return_hist(data):
 plot_chart_return_hist(data)
 
 # Train the model and make prediction
-from sklearn.preprocessing import MinMaxScaler
-
 close_data = data.filter(['Close'])
 close_data = close_data.values
-print(close_data)
-train_data_len = int(np.ceil(len(close_data)*0.9))
-print(len(close_data))
+train_data_len = int(np.ceil(len(close_data) * 0.9))
 
-scaler = MinMaxScaler(feature_range=(0,1))
+scaler = MinMaxScaler(feature_range=(0, 1))
 scaled_data = scaler.fit_transform(close_data)
-print(scaled_data)
 
 train_data = scaled_data[0:train_data_len, :]
-
-print("number of training data: ", len(train_data))
-print("train_data: ", train_data)
 
 x_train = []
 y_train = []
@@ -155,18 +151,9 @@ x_train = np.array(x_train)
 y_train = np.array(y_train)
 
 x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1)) # add one more dimension of the input data
-print(x_train.shape)
 
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0' 
-
-def train_and_predict(x_train, y_train, x_test):
-    import tensorflow as tf
-    tf.compat.v1.reset_default_graph()
-    from keras.models import Sequential
-    from keras.layers import Dense, LSTM
-
+@st.cache_resource
+def create_and_train_model(x_train, y_train):
     model = Sequential()
     model.add(LSTM(128, return_sequences=True, input_shape=(x_train.shape[1], 1)))
     model.add(LSTM(64, return_sequences=False))
@@ -178,9 +165,9 @@ def train_and_predict(x_train, y_train, x_test):
 
     # Train the model
     model.fit(x_train, y_train, batch_size=1, epochs=1)
+    return model
 
-    predictions = model.predict(x_test)
-    return predictions
+model = create_and_train_model(x_train, y_train)
 
 # Test data
 test_data = scaled_data[train_data_len - 100:, :]
@@ -194,10 +181,10 @@ for i in range(100, len(test_data)):
 x_test = np.array(x_test)
 x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], 1))
 
-predictions = train_and_predict(x_train, y_train, x_test)
+predictions = model.predict(x_test)
 predictions = scaler.inverse_transform(predictions)
 
-rmse = np.sqrt(np.mean(predictions - y_test)**2)   
+rmse = np.sqrt(np.mean(predictions - y_test)**2)
 print(rmse)
 
 # Plot the data
