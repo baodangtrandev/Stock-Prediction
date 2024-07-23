@@ -8,6 +8,8 @@ from sklearn.preprocessing import MinMaxScaler
 import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
+from streamlit_pandas_profiling import st_profile_report
+from ydata_profiling import ProfileReport
 
 # Get data frame
 start = '2014-01-01'
@@ -16,9 +18,6 @@ today = date.today().strftime("%Y-%m-%d")
 st.title("Stock Prediction Application")
 
 stock = st.text_input("Enter the stock symbol", value="GOOG")
-
-n_years = st.slider("Years of prediction:", 1, 10)
-days = n_years * 365
 
 @st.cache_data
 def get_data(stock, start, today):
@@ -29,6 +28,9 @@ def get_data(stock, start, today):
 data_load_state = st.text("Loading data...")
 data = get_data(stock, start, today)
 data_load_state.text("Loading data...done!")
+
+pr = ProfileReport(data, title="Pandas Profiling Report")
+st_profile_report(pr)
 
 st.subheader('Data Frame')
 st.write(data.tail())
