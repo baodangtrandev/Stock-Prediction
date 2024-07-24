@@ -1,10 +1,7 @@
 import streamlit as st
 import yfinance as yf
 from datetime import date
-
-from streamlit_pandas_profiling import st_profile_report
 from ydata_profiling import ProfileReport
-
 from plotly import graph_objs as go
 
 st.title("Stock Prediction Application page 1")
@@ -24,13 +21,11 @@ def get_data(stock, start, today):
     return data
 
 data_load_state = st.text("Loading data...")
-st.session_state.data = get_data(stock, start, today)
+data = get_data(stock, start, today)
 data_load_state.text("Loading data...done!")
 
-data = st.session_state.data
-
 pr = ProfileReport(data, title="Pandas Profiling Report")
-st_profile_report(pr)
+st_profile_report = st.write(pr)
 
 st.subheader('Average of Various Stock')
 
