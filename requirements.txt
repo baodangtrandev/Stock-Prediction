@@ -8,6 +8,7 @@ tensorflow==2.17.0
 keras
 phik>=0.12.2
 ydata-profiling==4.8.3
+streamlit_pandas_profiling
 pydantic-settings
 visions>=0.7.5,<0.7.7
 numba>=0.56.0,<1
