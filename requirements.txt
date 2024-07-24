@@ -8,4 +8,4 @@ tensorflow==2.17.0
 keras
 visions==0.7.4
 phik==0.12.0
-ydata_profiling==4.0.0
+ydata_profiling==4.1.2
