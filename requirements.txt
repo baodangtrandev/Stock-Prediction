@@ -6,6 +6,5 @@ plotly
 scikit-learn
 tensorflow==2.17.0
 keras
-streamlit_pandas_profiling
 ydata_profiling==4.1.2
-git+https://github.com/KaveIO/PhiK.git
+visions==0.7.5
