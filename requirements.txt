@@ -6,6 +6,9 @@ plotly
 scikit-learn
 tensorflow==2.17.0
 keras
+phik==0.12.1
 ydata_profiling==4.9.0
 streamlit_pandas_profiling
-phik==0.12.1
+pydantic-settings
+visions==0.7.4
+numba==0.55.2
