@@ -6,7 +6,7 @@ plotly
 scikit-learn
 tensorflow==2.17.0
 keras
-phik==0.12.1
+phik>=0.12.2
 ydata-profiling==4.8.3
 pydantic-settings
 visions>=0.7.5,<0.7.7
