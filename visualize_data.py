@@ -24,7 +24,6 @@ st.session_state.data = get_data(stock, start, today)
 data_load_state.text("Loading data...done!")
 
 data = st.session_state.data
-
 pr = ProfileReport(data, title="Pandas Profiling Report")
 st_profile_report(pr)
 
