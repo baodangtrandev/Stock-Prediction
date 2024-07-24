@@ -1,19 +1,15 @@
 import streamlit as st
 import yfinance as yf
 from datetime import date
-
-from streamlit_pandas_profiling import st_profile_report
 from ydata_profiling import ProfileReport
-
+from streamlit_pandas_profiling import st_profile_report
 from plotly import graph_objs as go
 
-st.title("Stock Prediction Application page 1")
+st.title("Stock Prediction Application")
 
 # Get data frame
 start = '2014-01-01'
 today = date.today().strftime("%Y-%m-%d")
-
-st.title("Stock Prediction Application")
 
 stock = st.text_input("Enter the stock symbol", value="GOOG")
 
