@@ -8,3 +8,4 @@ tensorflow==2.17.0
 keras
 ydata_profiling==4.9.0
 streamlit_pandas_profiling
+phik==0.12.1
