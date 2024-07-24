@@ -2,8 +2,8 @@ import streamlit as st
 import yfinance as yf
 from datetime import date
 from ydata_profiling import ProfileReport
+from streamlit_pandas_profiling import st_profile_report
 from plotly import graph_objs as go
-import json
 
 st.title("Stock Prediction Application")
 
@@ -24,25 +24,8 @@ st.session_state.data = get_data(stock, start, today)
 data_load_state.text("Loading data...done!")
 
 data = st.session_state.data
-
-# Generate the profile report
-pr = ProfileReport(data, explorative=True)
-
-# Convert the report to JSON
-report_json = json.loads(pr.to_json())
-
-# Display the report using Streamlit
-st.subheader("Data Profile Report")
-st.json(report_json)
-
-# You can also add specific sections of the report as needed
-st.subheader("Data Overview")
-st.write(report_json['table'])
-
-st.subheader("Variable Summary")
-for var, summary in report_json['variables'].items():
-    st.write(f"**{var}**")
-    st.write(summary)
+pr = ProfileReport(data)
+st_profile_report(pr)
 
 st.subheader('Average of Various Stock')
 
