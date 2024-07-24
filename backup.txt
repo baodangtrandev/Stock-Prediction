@@ -212,11 +212,4 @@ plot_chart_prediction(train, valid)
 
 
 
-pandas
-numpy
-yfinance
-streamlit
-plotly
-scikit-learn
-tensorflow==2.17.0
-keras
+
