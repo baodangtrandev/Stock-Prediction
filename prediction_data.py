@@ -18,9 +18,9 @@ st.title("Stock Prediction Application page 2")
 if 'data' not in st.session_state:
     st.warning("No data available. Please run the visualization script first.")
 else:
-    data = st.session_state.data
     st.write("Data loaded successfully for prediction.")
 
+data = st.session_state.data
 
 close_data = data.filter(['Close'])
 close_data = close_data.values
