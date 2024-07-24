@@ -7,4 +7,4 @@ scikit-learn
 tensorflow==2.17.0
 keras
 streamlit_pandas_profiling
-ydata_profiling
+pandas_profiling
