@@ -8,8 +8,8 @@ from sklearn.preprocessing import MinMaxScaler
 import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
-from streamlit_pandas_profiling import st_profile_report
 from ydata_profiling import ProfileReport
+from streamlit_pandas_profiling import st_profile_report
 
 # Get data frame
 start = '2014-01-01'
@@ -208,8 +208,3 @@ def plot_chart_prediction(train, valid):
     st.plotly_chart(fig)
 
 plot_chart_prediction(train, valid)
-
-
-
-
-
