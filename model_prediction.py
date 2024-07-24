@@ -9,6 +9,7 @@ import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
 from streamlit_pandas_profiling import st_profile_report
+from ydata_profiling import ProfileReport
 
 # Get data frame
 start = '2014-01-01'
@@ -28,7 +29,7 @@ data_load_state = st.text("Loading data...")
 data = get_data(stock, start, today)
 data_load_state.text("Loading data...done!")
 
-pr = data.profile_report()
+pr = ProfileReport(data, title="Pandas Profiling Report")
 st_profile_report(pr)
 
 st.subheader('Data Frame')
