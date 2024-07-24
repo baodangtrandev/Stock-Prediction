@@ -9,7 +9,7 @@ import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
 from streamlit_pandas_profiling import st_profile_report
-from pandas_profiling import ProfileReport
+from ydata_profiling import ProfileReport
 
 # Get data frame
 start = '2014-01-01'
