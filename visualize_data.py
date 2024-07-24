@@ -6,6 +6,7 @@ from plotly import graph_objs as go
 
 st.title("Stock Prediction Application")
 
+
 # Get data frame
 start = '2014-01-01'
 today = date.today().strftime("%Y-%m-%d")
