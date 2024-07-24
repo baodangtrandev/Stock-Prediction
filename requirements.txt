@@ -1,5 +1,5 @@
 pandas
-numpy
+numpy>=1.23.5,<2.0.0
 yfinance
 streamlit
 plotly
@@ -7,8 +7,9 @@ scikit-learn
 tensorflow==2.17.0
 keras
 phik==0.12.1
-ydata_profiling==4.8.3
+ydata_profiling==4.8.0
 streamlit_pandas_profiling
 pydantic-settings
-visions==0.7.5
-numba==0.56.0
+visions==0.7.4
+numba==0.55.2  
+
