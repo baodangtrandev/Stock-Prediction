@@ -7,9 +7,8 @@ scikit-learn
 tensorflow==2.17.0
 keras
 phik==0.12.1
-ydata_profiling==4.8.3
-streamlit_pandas_profiling
+pandas-profiling==3.6.6  # Use the latest version compatible with Python 3.11
+streamlit-pandas-profiling==0.1.3  # Latest version compatible
 pydantic-settings
-visions>=0.7.5,<0.7.7
-numba>=0.56.0,<1  
-
+visions==0.7.4  # Compatible with pandas-profiling 3.6.6
+numba>=0.56.0,<1
