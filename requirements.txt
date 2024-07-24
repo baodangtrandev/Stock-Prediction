@@ -4,12 +4,11 @@ yfinance
 streamlit
 plotly
 scikit-learn
-tensorflow==2.16.0  # Example version compatible with numpy>=1.23.5
+tensorflow==2.17.0
 keras
 phik>=0.12.2
 ydata-profiling==4.8.3
-# Commenting out streamlit_pandas_profiling due to compatibility issues
-# streamlit_pandas_profiling
+streamlit_pandas_profiling
 pydantic-settings
 visions>=0.7.5,<0.7.7
 numba>=0.56.0,<1
