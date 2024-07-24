@@ -1,7 +1,7 @@
 import streamlit as st
 import yfinance as yf
 from datetime import date
-from ydata_profiling import ProfileReport
+from pandas_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
 from plotly import graph_objs as go
 
