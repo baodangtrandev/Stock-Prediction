@@ -11,6 +11,10 @@ from keras.layers import Dense, LSTM
 st.title("Stock Prediction Application page 2")
 
 
+
+
+
+
 if 'data' not in st.session_state:
     st.warning("No data available. Please run the visualization script first.")
 else:

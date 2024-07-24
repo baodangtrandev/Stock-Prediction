@@ -3,6 +3,8 @@
 import streamlit as st
 
 
+
+
 visualize_page = st.Page("visualize_data.py",title="Visualize Data", icon="📊")
 prediction_page = st.Page("prediction_data.py",title="Model Prediction", icon="📈")
 
