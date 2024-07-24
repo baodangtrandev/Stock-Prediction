@@ -11,4 +11,4 @@ ydata_profiling==4.8.3
 streamlit_pandas_profiling
 pydantic-settings
 visions==0.7.4
-numba==0.6.0
+numba==0.56.0
