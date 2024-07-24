@@ -2,6 +2,9 @@ import streamlit as st
 import yfinance as yf
 from datetime import date
 
+
+
+
 from streamlit_pandas_profiling import st_profile_report
 from ydata_profiling import ProfileReport
 
