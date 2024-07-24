@@ -9,4 +9,3 @@ ydata-profiling==4.6.1
 streamlit_pandas_profiling==0.0.4
 phik==0.12.4
 joblib==1.1.1
-visions==0.7.5
