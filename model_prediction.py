@@ -8,6 +8,10 @@ from keras.models import Sequential
 from keras.layers import Dense, LSTM
 from visualize_data import data
 
+st.set_page_config(
+    page_title="Use Pygwalker In Streamlit",
+    layout="wide"
+)
 
 st.title("Stock Prediction Application")
 

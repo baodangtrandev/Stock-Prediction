@@ -5,7 +5,10 @@ import yfinance as yf
 from datetime import date
 from plotly import graph_objs as go
 
-
+st.set_page_config(
+    page_title="Use Pygwalker In Streamlit",
+    layout="wide"
+)
 
 # Get data frame
 start = '2014-01-01'
