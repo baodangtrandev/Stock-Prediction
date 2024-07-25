@@ -6,16 +6,11 @@ from sklearn.preprocessing import MinMaxScaler
 import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
+from visualize_data import data
 
 
 st.title("Stock Prediction Application")
 
-if 'data' not in st.session_state:
-    st.warning("No data available. Please run the visualization script first.")
-else:
-    st.write("Data loaded successfully for prediction.")
-
-data = st.session_state.data
 
 if data is not None:
     close_data = data.filter(['Close'])
