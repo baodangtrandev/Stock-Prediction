@@ -6,7 +6,7 @@ st.set_page_config(
     layout="wide"
 )
 
-visualized_page = st.Page("use_pygwalker.py", title="Visualizations", icon="📊", default=True)
+visualized_page = st.Page("visualize_data.py", title="Visualizations", icon="📊", default=True)
 model_page = st.Page("model_prediction.py", title="Model Prediction", icon="🧠")
 
 
