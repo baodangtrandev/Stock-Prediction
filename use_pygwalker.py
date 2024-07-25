@@ -1,15 +1,19 @@
+from pygwalker.api.streamlit import StreamlitRenderer
+import pandas as pd
 import streamlit as st
 import yfinance as yf
 from datetime import date
-from streamlit_pandas_profiling import st_profile_report
 from plotly import graph_objs as go
 
-st.title("Stock Prediction Application")
+
+
 
 
 # Get data frame
 start = '2014-01-01'
 today = date.today().strftime("%Y-%m-%d")
+
+st.title("Stock Prediction Application")
 
 stock = st.text_input("Enter the stock symbol", value="GOOG")
 
@@ -24,8 +28,13 @@ st.session_state.data = get_data(stock, start, today)
 data_load_state.text("Loading data...done!")
 
 data = st.session_state.data
-pr = data.profile_report()  # Generate the profile report
-st_profile_report(pr)
+data = pd.DataFrame(data)
+
+pyg_app = StreamlitRenderer(data)
+
+pyg_app.explorer()
+
+
 
 st.subheader('Average of Various Stock')
 
@@ -51,3 +60,4 @@ def plot_chart_ma(data):
     st.plotly_chart(fig)
 
 plot_chart_ma(data)
+
